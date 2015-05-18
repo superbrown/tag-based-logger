@@ -6,11 +6,11 @@ tags.   A developer may find it helpful to designate multiple tags for any parti
 since many log entries are logically related to multiple things.  Tags can also be used to designate
 special handling of particular entries.
 
-So far there's a log4j implementation, Log4JTagBasedLogger, that allows you to pass in tags as
+So far there's a log4j implementation, Log4JTagBasedLogger.  It allows you to pass in tags as
 optional arguments to the logging methods.  Under the covers the tags map to standard log4j loggers.
-So basically this allows you to log to multiple loggers at once. If more than one of the tags map to
+Basically this allows you to log to multiple loggers at once.  If more than one of the tags map to
 a particular appender, the appender will make a single entry (rather than multiple) and the tag
-names will be consolidated in the portion of the entry containing the logger's name. So, for
+names will be consolidated in the portion of the entry containing the logger's name.  So, for
 example, if an appender were set up to handle the tags STATUS_CHECKER as well as CONNECTION_POOL,
 and I made a call like this:
 
