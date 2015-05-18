@@ -30,4 +30,4 @@ as always.
 An added benefit of this approach is it makes it easy to have special handling for logging events
 using tags as switches.  For instance, one could have a tag to indicate support personnel should be
 notified and configure the logging framework to send out an e-mail message whenever the tag is
-encountered (by mapping its Logger to an e-mailing Appender).
+encountered (by mapping its logger to an e-mailing appender).
