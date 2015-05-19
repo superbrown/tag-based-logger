@@ -12,7 +12,7 @@ For example:
 In this example, CONNECTION_POOL and NOTIFY_ADMIN are tags. The log entry generated might look
 something like this:
 
-	2015-05-05 08:34:12 WARN [[CONNECTION_POOL][NOTIFY_ADMIN]] No connections available.
+	2015-05-05 08:34:12 WARN [CONNECTION_POOL][NOTIFY_ADMIN] No connections available.
 
 The only implementation so far is a wrapper for log4j.  The API is similar to log4j, just having
 optional arguments to designate tags (as above).  Also, logger constructors take 0..n tags as
@@ -26,7 +26,7 @@ For example:
 
 ...would produce an entry like this:
 
-	2015-05-05 08:34:12 WARN [[STATUS][CONNECTION_POOL][NOTIFY_ADMIN]] No connections available.
+	2015-05-05 08:34:12 WARN [STATUS][CONNECTION_POOL][NOTIFY_ADMIN] No connections available.
 
 Under the covers the tags map to standard log4j loggers.  (Think of this as having the ability to
 log to multiple loggers at once.)  Since multiple loggers can map to the same appender, it's not
