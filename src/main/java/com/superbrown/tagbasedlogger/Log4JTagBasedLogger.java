@@ -126,9 +126,9 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 			message = "(" + sourceCodeLocation + ") " + message;
 		}
 
-		Set<String> tagValues = toTagValues(tags);
-
+		Set<String> tagValues = new LinkedHashSet();
 		tagValues.addAll(getTagsToBeMinimallyAppliedToAllLogging());
+		tagValues.addAll(toTagValues(tags));
 
 		Set<Logger> enabledLoggers = getEnabledLoggers(level, tagValues);
 

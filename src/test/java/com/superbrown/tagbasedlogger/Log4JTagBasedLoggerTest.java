@@ -76,6 +76,12 @@ public class Log4JTagBasedLoggerTest
 		Logger logger_abc = Logger.getLogger("a.b.c");
 		Logger logger_abcd = Logger.getLogger("a.b.c.d");
 
+		logger_root.removeAllAppenders();
+		logger_a.removeAllAppenders();
+		logger_ab.removeAllAppenders();
+		logger_abc.removeAllAppenders();
+		logger_abcd.removeAllAppenders();
+
 		Appender appender_root = Mockito.mock(Appender.class);
 		Appender appender_a = Mockito.mock(Appender.class);
 		Appender appender_ab = Mockito.mock(Appender.class);
