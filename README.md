@@ -21,12 +21,12 @@ makes.
 
 For example:
 
-	TagBasedLogger log = Log4jTagBasedLogManager.getLogger("STATUS", "CONNECTION_POOL");
+	TagBasedLogger log = Log4jTagBasedLogManager.getLogger("MONITOR", "CONNECTION_POOL");
 	log.warn("No connections available.", "NOTIFY_ADMIN");
 
 ...would produce an entry like this:
 
-	2015-05-05 08:34:12 WARN [STATUS][CONNECTION_POOL][NOTIFY_ADMIN] No connections available.
+	2015-05-05 08:34:12 WARN [MONITOR][CONNECTION_POOL][NOTIFY_ADMIN] No connections available.
 
 Under the covers the tags map to standard log4j loggers.  (Think of this as having the ability to
 log to multiple loggers at once.)  Since multiple loggers can map to the same appender, it's not
