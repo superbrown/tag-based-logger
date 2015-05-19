@@ -33,11 +33,6 @@ public class Log4jTagBasedLogger_FunctionalTest
 	private MockAppender appender_b;
 	private MockAppender appender_c;
 
-	@After
-	public void after() throws Exception {
-
-	}
-
 	@Before
 	public void before() throws Exception {
 
@@ -49,6 +44,15 @@ public class Log4jTagBasedLogger_FunctionalTest
 		logger_abcde = Logger.getLogger("a.b.c.d.e");
 		logger_b = Logger.getLogger("b");
 		logger_c = Logger.getLogger("c");
+
+		logger_root.removeAllAppenders();
+		logger_a.removeAllAppenders();
+		logger_ab.removeAllAppenders();
+		logger_abc.removeAllAppenders();
+		logger_abcd.removeAllAppenders();
+		logger_abcde.removeAllAppenders();
+		logger_b.removeAllAppenders();
+		logger_c.removeAllAppenders();
 
 		logger_root.setLevel(Level.TRACE);
 		logger_a.setLevel(Level.TRACE);
@@ -84,6 +88,11 @@ public class Log4jTagBasedLogger_FunctionalTest
 		logger_abcde.addAppender(appender_abcde);
 		logger_b.addAppender(appender_b);
 		logger_c.addAppender(appender_c);
+	}
+
+	@After
+	public void after() throws Exception {
+
 	}
 
 	@Test

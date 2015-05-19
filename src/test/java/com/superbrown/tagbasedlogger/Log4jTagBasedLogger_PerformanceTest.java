@@ -42,6 +42,14 @@ public class Log4jTagBasedLogger_PerformanceTest
 		logger_e = Logger.getLogger("e");
 		logger_f = Logger.getLogger("f");
 
+		logger_root.removeAllAppenders();
+		logger_a.removeAllAppenders();
+		logger_b.removeAllAppenders();
+		logger_c.removeAllAppenders();
+		logger_d.removeAllAppenders();
+		logger_e.removeAllAppenders();
+		logger_f.removeAllAppenders();
+
 		logger_root.setLevel(Level.TRACE);
 		logger_a.setLevel(Level.TRACE);
 		logger_b.setLevel(Level.TRACE);
@@ -137,7 +145,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 
 				tagBasedLogger.trace("testing 123", "d", "e", "f");
 			}
-			long durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
+			double durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
@@ -205,6 +213,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 		assertTrue(appender_c.loggingEvent.getMessage().equals("testing 123"));
 		assertTrue(appender_d.loggingEvent.getMessage().equals("testing 123"));
 		assertTrue(appender_e.loggingEvent.getMessage().equals("testing 123"));
+		assertTrue(appender_f.loggingEvent.getMessage().equals("testing 123"));
 
 		// reset
 		appender_root.loggingEvent = null;
@@ -229,7 +238,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 
 				tagBasedLogger.trace("testing 123", "d", "e", "f");
 			}
-			long durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
+			double durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
@@ -292,7 +301,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 
 				tagBasedLogger.trace("testing 123");
 			}
-			long durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
+			double durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
@@ -351,7 +360,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 
 				tagBasedLogger.trace("testing 123");
 			}
-			long durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
+			double durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
