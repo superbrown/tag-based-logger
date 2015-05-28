@@ -8,11 +8,21 @@ generated.  Tags can also be used to designate special handling for particular t
 For example:
 
 	log.warn("No connections available.", e, "CONNECTION_POOL", "NOTIFY_ADMIN");
-
+l2
 In this example, CONNECTION_POOL and NOTIFY_ADMIN are tags. The log entry generated might look
 something like this:
 
 	2015-05-05 08:34:12 WARN [CONNECTION_POOL][NOTIFY_ADMIN] No connections available.
+		java.lang.Exception
+		at com.superbrown.tagbasedlogger.Main.method03(Main.java:37)
+		at com.superbrown.tagbasedlogger.Main.method02(Main.java:32)
+		at com.superbrown.tagbasedlogger.Main.method01(Main.java:27)
+		at com.superbrown.tagbasedlogger.Main.main(Main.java:16)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:606)
+		at com.intellij.rt.execution.application.AppMain.main(AppMain.java:120)
 
 The only implementation so far is a wrapper for log4j.  The API is similar to log4j, just having
 optional arguments to designate tags (as above).  Also, logger constructors take 0..n tags as
@@ -41,10 +51,8 @@ using log4j.)  All of log4j's logger behaviors -- including the role of the root
 parent/child relationships and additivity rules -- will continue to function as always.
 
 An added benefit of tag based logging is that it allows for special handling using tags as switches.
-For instance, a tag could be used to indicate support personnel should be notified.  Then, in
-something like log4j, the tag could be mapped to an appender configured to send out e-mail messages.
+For example, a tag could be used to indicate support personnel should be notified and it could be 
+mapped to an appender configured to send out e-mail notifictions.
 
 Initial performance tests of the log4j implementation indicate it's no more taxing on system
-performance than log4j on its own.  In fact, the performance tests included in the unit test suite
-using  mock appenders indicate it's considerably quicker, although it's hard to imagine how that
-could be the case.  (Independent tests are welcomed.)
+performance than log4j on its own.  (Independent tests are welcomed.)
