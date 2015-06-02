@@ -54,4 +54,4 @@ For example, a tag could be used to indicate support personnel should be notifie
 mapped to an appender configured to send out e-mail notifictions.
 
 Initial performance tests of the Log4j implementation indicate it's no more taxing on system
-performance than log4j on its own.  (Independent tests are welcomed.)
+performance than Log4j on its own.  (Independent tests are welcomed.)
