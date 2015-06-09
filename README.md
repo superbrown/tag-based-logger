@@ -4,7 +4,7 @@
 
 The idea behind this is to make it easier to locate log entries of interest by assigning them tags when 
 they're generated.  Tags can also be used to designate special handling for particular entries (more on 
-that later).
+this later).
 
 For example:
 
