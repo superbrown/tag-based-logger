@@ -469,13 +469,11 @@ public class Log4JTagBasedLoggerTest
 			this.iterator = elements.iterator();
 		}
 
-		@Override
 		public boolean hasMoreElements() {
 
 			return iterator.hasNext();
 		}
 
-		@Override
 		public Object nextElement() {
 
 			return iterator.next();
