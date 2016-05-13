@@ -7,7 +7,6 @@ package com.superbrown.tagbasedlogger;
  */
 public class Log4jTagBasedLogManager implements TagBasedLogManager
 {
-	@Override
 	public TagBasedLogger getLogger(Object... tagsToBeAppliedToAllLogging) {
 
 		return new Log4JTagBasedLogger(tagsToBeAppliedToAllLogging);
