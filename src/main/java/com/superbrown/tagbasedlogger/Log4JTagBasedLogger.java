@@ -343,18 +343,18 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 
 	protected String createStringContainingAllLoggerNames(Set<Logger> loggers) {
 
-		StringBuilder tagString = new StringBuilder();
+		String tagString = "";
 
 		if (loggers.size() == 0) {
 
-			tagString.append("[]");
+			// e.g.: []
+			tagString += getOpenTag() + getClosedTag();
 		}
 		else {
 
 			for (Logger logger : loggers) {
-				tagString.append("[");
-				tagString.append(logger.getName());
-				tagString.append("]");
+				// e.g.: [TAG NAME]
+				tagString += getOpenTag() + logger.getName() + getClosedTag();
 			}
 		}
 
@@ -381,5 +381,15 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 		//              somewhere.  If it does happen, something must be defective in the code
 		//              above.
 		throw new RuntimeException("code defect");
+	}
+
+	// Override this if you want a different value
+	private String getClosedTag() {
+		return "]";
+	}
+
+	// Override this if you want a different value
+	private String getOpenTag() {
+		return "[";
 	}
 }
