@@ -53,11 +53,11 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 
 
 	private Set<String> tagsToBeMinimallyAppliedToAllLogging = new LinkedHashSet();
-	@Override
+
 	public void setTagsToBeMinimallyAppliedToAllLogging(Set<String> tags) {
 		this.tagsToBeMinimallyAppliedToAllLogging = tags;
 	}
-	@Override
+
 	public Set<String> getTagsToBeMinimallyAppliedToAllLogging() {
 		return tagsToBeMinimallyAppliedToAllLogging;
 	}
@@ -81,30 +81,29 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 		}
 	}
 
-	@Override
 	public void fatal(Object message, Object... tags) { log(Level.FATAL, message, tags); }
-	@Override
+
 	public void error(Object message, Object... tags) { log(Level.ERROR, message, tags); }
-	@Override
+
 	public void warn(Object message, Object... tags) { log(Level.WARN, message, tags); }
-	@Override
+
 	public void info(Object message, Object... tags) { log(Level.INFO, message, tags); }
-	@Override
+
 	public void debug(Object message, Object... tags) { log(Level.DEBUG, message, tags); }
-	@Override
+
 	public void trace(Object message, Object... tags) { log(Level.TRACE, message, tags); }
 
-	@Override
+
 	public void fatal(Object message, Throwable e, Object... tags) { log(Level.FATAL, message, e, tags); }
-	@Override
+
 	public void error(Object message, Throwable e, Object... tags) { log(Level.ERROR, message, e, tags); }
-	@Override
+
 	public void warn(Object message, Throwable e, Object... tags) { log(Level.WARN, message, e, tags); }
-	@Override
+
 	public void info(Object message, Throwable e, Object... tags) { log(Level.INFO, message, e, tags); }
-	@Override
+
 	public void debug(Object message, Throwable e, Object... tags) { log(Level.DEBUG, message, e, tags); }
-	@Override
+
 	public void trace(Object message, Throwable e, Object... tags) { log(Level.TRACE, message, e, tags); }
 
 	public void log(Level level, Object message, Object... tags) {
@@ -138,27 +137,22 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 		log(mapOfAppendersToLoggers, level, message, e);
 	}
 
-	@Override
 	public boolean isErrorEnabled(Object... tags) {
 		return isEnabledFor(Level.ERROR, tags);
 	}
 
-	@Override
 	public boolean isWarnEnabled(Object... tags) {
 		return isEnabledFor(Level.WARN, tags);
 	}
 
-	@Override
 	public boolean isInfoEnabled(Object... tags) {
 		return isEnabledFor(Level.INFO, tags);
 	}
 
-	@Override
 	public boolean isDebugEnabled(Object... tags) {
 		return isEnabledFor(Level.DEBUG, tags);
 	}
 
-	@Override
 	public boolean isTraceEnabled(Object... tags) {
 		return isEnabledFor(Level.TRACE, tags);
 	}
