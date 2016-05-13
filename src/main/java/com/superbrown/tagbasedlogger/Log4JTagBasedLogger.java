@@ -348,13 +348,13 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 		if (loggers.size() == 0) {
 
 			// e.g.: []
-			tagString += getOpenTag() + getClosedTag();
+			tagString += getOpeningTag() + getClosingTag();
 		}
 		else {
 
 			for (Logger logger : loggers) {
 				// e.g.: [TAG NAME]
-				tagString += getOpenTag() + logger.getName() + getClosedTag();
+				tagString += getOpeningTag() + logger.getName() + getClosingTag();
 			}
 		}
 
@@ -384,12 +384,12 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 	}
 
 	// Override this if you want a different value
-	private String getClosedTag() {
+	private String getClosingTag() {
 		return "]";
 	}
 
 	// Override this if you want a different value
-	private String getOpenTag() {
+	private String getOpeningTag() {
 		return "[";
 	}
 }
