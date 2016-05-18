@@ -39,6 +39,10 @@ import java.util.*;
 public class Log4JTagBasedLogger implements TagBasedLogger {
 
 	private Level thresholdLevelForRecordingSourceCodeLocation = Level.WARN;
+
+	private String closingTagString = "["; // defaulot
+	private String openingTagString = "]"; // defaulot
+
 	/**
 	 * Sets the threshold level for automatically recording source code location (class name and
 	 * line number) in log entries.  The default is WARN.
@@ -383,13 +387,11 @@ public class Log4JTagBasedLogger implements TagBasedLogger {
 		throw new RuntimeException("code defect");
 	}
 
-	// Override this if you want a different value
-	private String getClosingTag() {
-		return "]";
+	public String getOpeningTag() {
+		return closingTagString;
 	}
+	public void setOpeningTagString(String openingTagString) { this.openingTagString = openingTagString; }
 
-	// Override this if you want a different value
-	private String getOpeningTag() {
-		return "[";
-	}
+	public String getClosingTag() { return openingTagString; }
+	public void setClosingTagString(String closingTagString) { this.closingTagString = closingTagString; }
 }

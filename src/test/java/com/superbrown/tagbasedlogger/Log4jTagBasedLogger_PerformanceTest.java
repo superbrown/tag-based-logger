@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(PowerMockRunner.class)
 public class Log4jTagBasedLogger_PerformanceTest
 {
+	public static final int NUMBER_OF_ITERATIONS = 100000;
 
 	private Logger logger_root;
 	private Logger logger_a;
@@ -141,7 +142,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 			Thread.sleep(50);
 
 			long tagBasedLoggerStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
 
 				tagBasedLogger.trace("testing 123", "d", "e", "f");
 			}
@@ -149,7 +150,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
 
 				logger_a.trace("testing 123");
 				logger_b.trace("testing 123");
@@ -234,7 +235,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 			Thread.sleep(50);
 
 			long tagBasedLoggerStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
 
 				tagBasedLogger.trace("testing 123", "d", "e", "f");
 			}
@@ -242,7 +243,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
 
 				logger_a.trace("testing 123");
 				logger_b.trace("testing 123");
@@ -297,7 +298,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 			Thread.sleep(50);
 
 			long tagBasedLoggerStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
 
 				tagBasedLogger.trace("testing 123");
 			}
@@ -305,7 +306,7 @@ public class Log4jTagBasedLogger_PerformanceTest
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
 
 				logger_a.trace("testing 123");
 			}
@@ -353,23 +354,23 @@ public class Log4jTagBasedLogger_PerformanceTest
 			tagBasedLogger = new Log4JTagBasedLogger("a");
 
 			// pause to get everything stable
-				Thread.sleep(50);
-
-			long tagBasedLoggerStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
-
-				tagBasedLogger.trace("testing 123");
-			}
-			double durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
+			Thread.sleep(50);
 
 			// Now do the equivalent thing using raw log4j
 			long log4jStartTime = System.currentTimeMillis();
-			for (int i = 0; i < 50000; i++) {
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
 
 				logger_root.trace("testing 123");
 				logger_a.trace("testing 123");
 			}
 			double durationUsingLog4j = System.currentTimeMillis() - log4jStartTime;
+
+			long tagBasedLoggerStartTime = System.currentTimeMillis();
+			for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
+
+				tagBasedLogger.trace("testing 123");
+			}
+			double durationUsingTagBasedLogger = System.currentTimeMillis() - tagBasedLoggerStartTime;
 
 			double tagBasedToLog4jRatio = durationUsingTagBasedLogger / durationUsingLog4j;
 
