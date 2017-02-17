@@ -1,5 +1,7 @@
 # tag-based-logger
 
+Note: Using this may be less necessary if you're using something like Splunk. Also, this only works with Log4j version 1.x, as version 2 removed hooks for getting access to appenders that this relies upon. 
+
 **a Java logging framework wrapper that allows logging based on tags**
 
 The idea behind this is to make it easier to locate log entries of interest by assigning them tags when 
