@@ -4,7 +4,7 @@
 
 **a Java logging framework wrapper that allows logging based on tags**
 
-Note: Using this may be less necessary if you're using something like Splunk. Also, this only works with Log4j version 1.x, as version 2 removed hooks for getting access to appenders that this codes upon.
+Note: Using this may be less necessary if you're using something like Splunk. Also, this only works with Log4j version 1.x, as version 2 removed the hooks for accessing appenders that this codes relies upon.
 
 The idea behind this is to make it easier to locate log entries of interest by assigning them tags when 
 they're generated.  Tags can also be used to designate special handling for particular entries (more on 
@@ -29,7 +29,7 @@ something like this:
 		at java.lang.reflect.Method.invoke(Method.java:606)
 		at com.intellij.rt.execution.application.AppMain.main(AppMain.java:120)
 
-The only implementation of this so far is a wrapper for Log4j.  Its API mirrors Log4j's, but the 
+The only implementation I've made of this so far is a wrapper for Log4j.  Its API mirrors Log4j's, but the 
 logging methods have optional arguments to designate tags (as above).  Additionally, the wrapper's
 constructor takse 0..n tags as arguments, designating tags that will be applied (at a minimum) to 
 each log entry the logger generates.
